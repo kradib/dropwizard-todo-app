@@ -1,5 +1,6 @@
 package com.example.dropwizardapp;
 
+import com.example.FlywayBundle;
 import com.example.HelloWorldConfiguration;
 import com.example.resource.HelloWorldResource;
 import io.dropwizard.Application;
@@ -22,5 +23,6 @@ public class HelloWorldApplication extends Application<HelloWorldConfiguration> 
         // Application logic
         final HelloWorldResource resource = new HelloWorldResource();
         environment.jersey().register(resource);
+        environment.lifecycle().manage(new FlywayBundle(configuration.getDataSourceFactory()));
     }
 }

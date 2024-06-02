@@ -10,3 +10,11 @@ logging:
   level: INFO
   appenders:
     - type: console
+
+database:
+  driverClass: com.mysql.cj.jdbc.Driver
+  user: root
+  password: root
+  url: jdbc:mysql://localhost:3306/test
+  properties:
+    charSet: UTF-8
